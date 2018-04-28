@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
@@ -42,7 +42,7 @@ export default class IndexPage extends Component {
                   {post.frontmatter.description}
                   <br />
                   <br />
-                  <h1> {episodeNumberFormat(post.frontmatter.episodeNumber)}</h1>
+                  {/* <h1> {episodeNumberFormat(post.frontmatter.episodeNumber)}</h1> */}
                   <Link className="button is-small" to={post.fields.slug}>
                     Listen
                   </Link>
