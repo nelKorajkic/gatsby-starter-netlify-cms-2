@@ -50,7 +50,8 @@ EpisodePostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet)
+  helmet: PropTypes.instanceOf(Helmet),
+  episodeNumber: PropTypes.number
 };
 
 const EpisodePost = ({ data }) => {
@@ -64,6 +65,7 @@ const EpisodePost = ({ data }) => {
       helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
+      episodeNumber={post.frontmatter.episodeNumber}
     />
   );
 };
@@ -86,7 +88,6 @@ export const pageQuery = graphql`
         title
         description
         tags
-        episodeNumber
       }
     }
   }

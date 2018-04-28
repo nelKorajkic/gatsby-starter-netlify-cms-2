@@ -6,6 +6,7 @@ export default class IndexPage extends Component {
   render() {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
+
     function episodeNumberFormat(num) {
       if (num < 10) {
         return <h1> E00{num} </h1>;
@@ -15,6 +16,7 @@ export default class IndexPage extends Component {
         return <h1> E{num} </h1>;
       }
     }
+
     return (
       <section className="section">
         <div className="container">
@@ -76,7 +78,6 @@ export const pageQuery = graphql`
             templateKey
             date(formatString: "MMM DD YYYY")
             description
-            episodeNumber
           }
         }
       }
