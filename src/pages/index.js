@@ -1,12 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
+import React, { Fragment, Component } from "react";
+import PropTypes from "prop-types";
+import Link from "gatsby-link";
 
-export default class IndexPage extends React.Component {
+export default class IndexPage extends Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
-
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
+    function episodeNumberFormat(num) {
+      if (num < 10) {
+        return <h1> E00{num} </h1>;
+      } else if (num >= 10 && num < 100) {
+        return <h1> E0{num} </h1>;
+      } else {
+        return <h1> E{num} </h1>;
+      }
+    }
     return (
       <section className="section">
         <div className="container">
@@ -14,11 +22,11 @@ export default class IndexPage extends React.Component {
             <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
           </div>
           {posts
-            .filter(post => post.node.frontmatter.templateKey === 'blog-post')
+            .filter((post) => post.node.frontmatter.templateKey === "episode-post")
             .map(({ node: post }) => (
               <div
                 className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
+                style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
                 key={post.id}
               >
                 <p>
@@ -29,28 +37,29 @@ export default class IndexPage extends React.Component {
                   <small>{post.frontmatter.date}</small>
                 </p>
                 <p>
-                  {post.excerpt}
+                  {post.frontmatter.description}
                   <br />
                   <br />
+                  <h1> {episodeNumberFormat(post.frontmatter.episodeNumber)}</h1>
                   <Link className="button is-small" to={post.fields.slug}>
-                    Keep Reading →
+                    Listen
                   </Link>
                 </p>
               </div>
             ))}
         </div>
       </section>
-    )
+    );
   }
 }
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
+      edges: PropTypes.array
+    })
+  })
+};
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -65,10 +74,12 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMM DD YYYY")
+            description
+            episodeNumber
           }
         }
       }
     }
   }
-`
+`;
