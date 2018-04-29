@@ -1,10 +1,15 @@
 import React from "react";
-import { navigateTo } from "gatsby-link";
+import Link from "gatsby-link";
+import Helmet from "react-helmet";
 
 function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+  const formData = new FormData();
+
+  for (const key of Object.keys(data)) {
+    formData.append(key, data[key]);
+  }
+
+  return formData;
 }
 
 export default class Contact extends React.Component {
@@ -14,16 +19,19 @@ export default class Contact extends React.Component {
   }
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    if (e.target.files) {
+      this.setState({ [e.target.name]: e.target.files[0] });
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
   };
 
   handleSubmit = (e) => {
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state })
+      body: encode({ "form-name": "file-upload", ...this.state })
     })
-      .then(() => navigateTo("/thanks/"))
+      .then(() => alert("Success!"))
       .catch((error) => alert(error));
 
     e.preventDefault();
@@ -32,11 +40,10 @@ export default class Contact extends React.Component {
   render() {
     return (
       <div>
-        <h1>Submit A Question</h1>
+        <h1>File Upload</h1>
         <form
-          name="contact"
+          name="file-upload"
           method="post"
-          action="/thanks/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
@@ -54,14 +61,8 @@ export default class Contact extends React.Component {
           </p>
           <p>
             <label>
-              Your email:<br />
-              <input type="email" name="email" onChange={this.handleChange} />
-            </label>
-          </p>
-          <p>
-            <label>
-              Message:<br />
-              <textarea name="message" onChange={this.handleChange} />
+              File:<br />
+              <input type="file" name="attachment" onChange={this.handleChange} />
             </label>
           </p>
           <p>

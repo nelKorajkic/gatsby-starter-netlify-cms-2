@@ -1,16 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
 import Helmet from "react-helmet";
 import Link from "gatsby-link";
 import Content, { HTMLContent } from "../components/Content";
+import Player from "../components/BackgroundSoundPlayer";
 
 export const EpisodePostTemplate = ({
   content,
   contentComponent,
   description,
   episodeNumber,
-  tags,
+  soundCloudLink,
   title,
   helmet
 }) => {
@@ -26,21 +27,11 @@ export const EpisodePostTemplate = ({
             <p>{description}</p>
             <PostContent content={content} />
             <h1>episode number: {episodeNumber}</h1>
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+            <h2>SoundCloud Link: {soundCloudLink}</h2>
           </div>
         </div>
       </div>
+      <Player resolveUrl="https://soundcloud.com/ksmtk/chronemics" clientId="" backgroundImage="" />
     </section>
   );
 };
@@ -51,7 +42,8 @@ EpisodePostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.instanceOf(Helmet),
-  episodeNumber: PropTypes.number
+  episodeNumber: PropTypes.string,
+  soundCloudLink: PropTypes.string
 };
 
 const EpisodePost = ({ data }) => {
@@ -66,6 +58,7 @@ const EpisodePost = ({ data }) => {
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
       episodeNumber={post.frontmatter.episodeNumber}
+      soundCloudLink={post.frontmatter.soundCloudLink}
     />
   );
 };
@@ -87,7 +80,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
-        tags
       }
     }
   }

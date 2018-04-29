@@ -16,19 +16,20 @@ const Navbar = () => (
       </div>
       <div className="navbar-start" />
       <div className="navbar-end">
-        <Link className="navbar-item" to="/about">
+        <Link activeClassName="is-active" className="navbar-item" to="/about">
           About
         </Link>
-        <Link className="navbar-item" to="/products">
+        <Link activeClassName="is-active" className="navbar-item" to="/products">
           Products
         </Link>
-        <Link className="navbar-item" to="/blog">
+        <Link activeClassName="is-active" className="navbar-item" to="/blog">
           Blog
         </Link>
-        <Link className="navbar-item" to="/episodes">
+        <Link activeClassName="is-active" className="navbar-item" to="/episodes">
           Episodes
+          <span className="underline" />
         </Link>
-        <Link className="navbar-item" to="/submitQuestion">
+        <Link activeClassName="is-active" className="navbar-item" to="/submitQuestion">
           Submit A Question
         </Link>
       </div>
