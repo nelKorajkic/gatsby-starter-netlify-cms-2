@@ -7,7 +7,12 @@ import "./all.sass";
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet title="Philosophical Heroes" />
+    <Helmet title="Philosophical Heroes">
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+    </Helmet>
     <Navbar />
     <div>{children()}</div>
   </div>

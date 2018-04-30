@@ -34,8 +34,8 @@ export default class EpisodesPage extends React.Component {
                     {post.frontmatter.description}
                     <br />
                     <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
+                    <Link className="listenBtn" to={post.fields.slug}>
+                      ▶ Listen
                     </Link>
                   </p>
                 </div>

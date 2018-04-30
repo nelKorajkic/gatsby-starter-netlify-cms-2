@@ -7,23 +7,24 @@ import logo from "../img/logo.svg";
 const Navbar = () => (
   <nav className="navbar is-transparent">
     <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <figure className="image">
-            <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
-          </figure>
-        </Link>
-      </div>
+      <div className="navbar-brand" />
       <div className="navbar-start" />
       <div className="navbar-end">
+        <Link activeClassName="is-active" className="navbar-item" exact to="/">
+          Home
+          <span className="underline" />
+        </Link>
         <Link activeClassName="is-active" className="navbar-item" to="/about">
           About
+          <span className="underline" />
         </Link>
         <Link activeClassName="is-active" className="navbar-item" to="/products">
           Products
+          <span className="underline" />
         </Link>
         <Link activeClassName="is-active" className="navbar-item" to="/blog">
           Blog
+          <span className="underline" />
         </Link>
         <Link activeClassName="is-active" className="navbar-item" to="/episodes">
           Episodes
@@ -31,6 +32,7 @@ const Navbar = () => (
         </Link>
         <Link activeClassName="is-active" className="navbar-item" to="/submitQuestion">
           Submit A Question
+          <span className="underline" />
         </Link>
       </div>
     </div>
