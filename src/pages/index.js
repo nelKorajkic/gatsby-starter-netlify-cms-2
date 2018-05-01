@@ -21,76 +21,84 @@ export default class IndexPage extends Component {
     return (
       <div>
         <div className="container">
-          <img src="" alt="" />
-          <h1 className="has-text-weight-bold is-size-2 has-text-centered	">Philosophical Heroes</h1>
-          <div className="content">
-            <p>
-              Here is the description of the podcast it’s about something and something and it
-              everynight at 9pm hosted by Stjepan Kraljic. Tune in live at youtube.com or catch it
-              after at soundcloud.com
-            </p>
-          </div>
-          <div>
-            <FontAwesome
-              className="super-crazy-colors"
-              name="spotify"
-              size="2x"
-              style={{ color: "black" }}
-            />
-            <FontAwesome
-              className="super-crazy-colors"
-              name="twitter"
-              size="2x"
-              style={{ color: "black" }}
-            />
-            <FontAwesome
-              className="super-crazy-colors"
-              name="facebook"
-              size="2x"
-              style={{ color: "black" }}
-            />
-            <FontAwesome
-              className="super-crazy-colors"
-              name="soundcloud"
-              size="2x"
-              fixedWidth
-              style={{ color: "black" }}
-            />
+          <div className="columns">
+            <div className="column is-half is-offset-one-quarter">
+              <img src="" alt="" />
+              <h1 className="has-text-weight-bold is-size-2 has-text-centered	">
+                Philosophical Heroes
+              </h1>
+              <div className="content">
+                <p className="has-text-justified">
+                  Here is the description of the podcast it’s about something and something and it
+                  everynight at 9pm hosted by Stjepan Kraljic. Tune in live at youtube.com or catch
+                  it after at soundcloud.com
+                </p>
+              </div>
+              <div>
+                <span className="fa-stack fa-lg">
+                  <a href="https://www.twitter.com/philosophicalHeroes">
+                    <FontAwesome className="socialBg" name="circle-o" stack="2x" />
+                    <FontAwesome className="socialBtn" name="twitter" stack="1x" />
+                  </a>
+                </span>
+                <span className="fa-stack fa-lg">
+                  <a href="https://www.twitter.com/philosophicalHeroes">
+                    ">
+                    <FontAwesome className="socialBg" name="circle-o" stack="2x" />
+                    <FontAwesome className="socialBtn" name="facebook" stack="1x" />
+                  </a>
+                </span>
+                <span className="fa-stack fa-lg">
+                  <a href="https://www.twitter.com/philosophicalHeroes">
+                    <FontAwesome className="socialBg" name="circle-o" stack="2x" />
+                    <FontAwesome className="socialBtn" name="spotify" stack="1x" />
+                  </a>
+                </span>
+                <span className="fa-stack fa-lg">
+                  <a href="https://www.twitter.com/philosophicalHeroes">
+                    <FontAwesome className="socialBg" name="circle-o" stack="2x" />
+                    <FontAwesome className="socialBtn" name="soundcloud" stack="1x" />
+                  </a>
+                </span>
+              </div>
+              <section className="section">
+                <h1 className="has-text-weight-bold is-size-2 has-text-centered">
+                  Latest Episodes
+                </h1>
+                {posts
+                  .filter((post) => post.node.frontmatter.templateKey === "episode-post")
+                  .map(({ node: post }) => (
+                    <div
+                      className="episode"
+                      style={{
+                        border: "1px solid #eaecee",
+                        padding: "2em 4em",
+                        margin: "2rem auto"
+                      }}
+                      key={post.id}
+                    >
+                      <p>
+                        <Link className="has-text-primary" to={post.fields.slug}>
+                          {post.frontmatter.title}
+                        </Link>
+                        <span> &bull; </span>
+                        <small>{post.frontmatter.date}</small>
+                      </p>
+                      <p>
+                        {post.frontmatter.description}
+                        <br />
+                        <br />
+                        {/* <h1> {episodeNumberFormat(post.frontmatter.episodeNumber)}</h1> */}
+                        <Link className="listenBtn" to={post.fields.slug}>
+                          ▶ Listen
+                        </Link>
+                      </p>
+                    </div>
+                  ))}
+              </section>
+            </div>
           </div>
         </div>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-            </div>
-            {posts
-              .filter((post) => post.node.frontmatter.templateKey === "episode-post")
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.frontmatter.description}
-                    <br />
-                    <br />
-                    {/* <h1> {episodeNumberFormat(post.frontmatter.episodeNumber)}</h1> */}
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Listen
-                    </Link>
-                  </p>
-                </div>
-              ))}
-          </div>
-        </section>
       </div>
     );
   }

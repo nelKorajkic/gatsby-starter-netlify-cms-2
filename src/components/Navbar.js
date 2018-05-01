@@ -7,8 +7,8 @@ import logo from "../img/logo.svg";
 const Navbar = () => (
   <nav className="navbar is-transparent">
     <div className="container">
-      <div className="navbar-brand" />
-      <div className="navbar-start" />
+      {/* <div className="navbar-brand" /> */}
+      {/* <div className="navbar-start" /> */}
       <div className="navbar-end">
         <Link activeClassName="is-active" className="navbar-item" exact to="/">
           Home

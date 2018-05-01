@@ -33,7 +33,7 @@ export default class BlogPage extends Component {
                   <br />
                   <br />
                   <Link className="button is-small" to={post.fields.slug}>
-                    Listen
+                    Read More
                   </Link>
                 </p>
               </div>

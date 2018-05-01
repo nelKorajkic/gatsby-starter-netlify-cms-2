@@ -12,9 +12,63 @@ $kaldi-red-invert: #fff
 $bgGradient: linear-gradient(93.08deg, #42404A 6.47%, #2F65AD 87.28%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #45485C
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
-
+$btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
 *
   font-family: $open-sans
+  
+.episode
+  box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
+  -webkit-box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
+.ph-form
+  margin: 5rem 0rem
+  box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
+  -webkit-box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
+  
+.test
+  background-image: $btnGradient
+  border-radius: 40px
+  box-sizing: border-box
+  color: #00a84f;
+  display: block;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  z-index: 2;
+  
+.ph-submit
+  background: $bgGradient
+  color: white
+  padding: .5rem 1.5rem;
+  text-align: center;
+  letter-spacing: .05rem;
+  border-radius: 24px;
+  border: 1px solid transparent
+  font-family: $open-sans
+  
+.ph-input
+  border-radius: 6px
+  padding: .4rem .8rem
+  background: #eee
+  color: black
+  border: 1px solid transparent;
+  font-family: $open-sans
+  font-size: 1em
+  &:focus
+    background: #fff
+.fa-stack
+  margin-right: .7rem
+  
+.socialBtn
+  color: white
+  font-size: 1.6em
+  width: 1.6em
+  line-height: 1.6em
+  text-align: center
+  border-radius: 100%
+  background: $bgGradient
   
 .is-active
   .underline
@@ -22,14 +76,19 @@ $primary-invert: $kaldi-red-invert
     top: 35px
   
 .navbar-item.is-active
-  color: red
+  color: black
   font-weight: bold
   opacity: 1
 
 .navbar-item
   font-family: $Archivo
   opacity: .5
-  
+  &:hover
+    opacity: .8
+    color: black
+    background: blue
+
+
 .underline
   transition: all 200ms ease-in-out
   width: 100%
