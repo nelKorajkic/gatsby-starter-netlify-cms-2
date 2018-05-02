@@ -30,11 +30,11 @@ export default class EpisodesPage extends React.Component {
                     <span> &bull; </span>
                     <small>{post.frontmatter.date}</small>
                   </p>
-                  <p>
+                  <p className="is-clearfix">
                     {post.frontmatter.description}
                     <br />
                     <br />
-                    <Link className="listenBtn" to={post.fields.slug}>
+                    <Link className="listenBtn is-pulled-right" to={post.fields.slug}>
                       ▶ Listen
                     </Link>
                   </p>

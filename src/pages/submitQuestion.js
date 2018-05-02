@@ -1,5 +1,6 @@
 import React from "react";
 import { navigateTo } from "gatsby-link";
+import FontAwesome from "react-fontawesome";
 
 function encode(data) {
   return Object.keys(data)
@@ -54,33 +55,54 @@ export default class Contact extends React.Component {
                 <p>
                   <label>
                     <h1 className="has-text-weight-bold is-size-6">Name</h1>
-                    <input
-                      className="ph-input"
-                      type="text"
-                      name="name"
-                      onChange={this.handleChange}
-                    />
+                    <p className="control has-icons-left has-icons-right">
+                      <input
+                        className="input ph-input"
+                        type="email"
+                        name="email"
+                        onChange={this.handleChange}
+                        placeholder="John Doe"
+                      />
+                      <span className="icon is-small is-left">
+                        <FontAwesome className="fas" style={{ color: "#4a4a4a" }} name="user" />
+                      </span>
+                    </p>
                   </label>
                 </p>
                 <p>
                   <label>
                     <h1 className="has-text-weight-bold is-size-6">Email</h1>
-                    <input
-                      className="ph-input"
-                      type="email"
-                      name="email"
-                      onChange={this.handleChange}
-                    />
+                    <p className="control has-icons-left has-icons-right">
+                      <input
+                        className="input ph-input"
+                        type="email"
+                        name="email"
+                        onChange={this.handleChange}
+                        placeholder="John Doe@test.com"
+                      />
+                      <span className="icon is-small is-left">
+                        <FontAwesome className="fas" style={{ color: "#4a4a4a" }} name="envelope" />
+                      </span>
+                    </p>
                   </label>
                 </p>
                 <p>
                   <label>
                     <h1 className="has-text-weight-bold is-size-6">Message</h1>
-                    <textarea className="ph-input" name="message" onChange={this.handleChange} />
+                    <p className="control">
+                      <textarea
+                        className="input ph-input ph-textarea"
+                        type="email"
+                        name="message"
+                        onChange={this.handleChange}
+                        cols="50"
+                        placeholder="Really loving your podcast! :)"
+                      />
+                    </p>
                   </label>
                 </p>
                 <p>
-                  <button className="ph-submit" type="submit">
+                  <button className="ph-submit is-pulled-right" type="submit">
                     Send
                   </button>
                 </p>

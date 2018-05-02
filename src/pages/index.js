@@ -84,12 +84,12 @@ export default class IndexPage extends Component {
                         <span> &bull; </span>
                         <small>{post.frontmatter.date}</small>
                       </p>
-                      <p>
+                      <p className="is-clearfix">
                         {post.frontmatter.description}
                         <br />
                         <br />
                         {/* <h1> {episodeNumberFormat(post.frontmatter.episodeNumber)}</h1> */}
-                        <Link className="listenBtn" to={post.fields.slug}>
+                        <Link className="listenBtn is-pulled-right " to={post.fields.slug}>
                           ▶ Listen
                         </Link>
                       </p>
