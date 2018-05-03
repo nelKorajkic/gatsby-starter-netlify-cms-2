@@ -18,6 +18,7 @@ export default class IndexPage extends Component {
       }
     }
 
+    const episodes = posts.filter((post) => post.node.frontmatter.templateKey === "episode-post");
     return (
       <div>
         <div className="container">
@@ -38,64 +39,73 @@ export default class IndexPage extends Component {
                 <span className="fa-stack fa-lg">
                   <a href="https://www.twitter.com/philosophicalHeroes">
                     <FontAwesome className="socialBg" name="circle-o" stack="2x" />
-                    <FontAwesome className="socialBtn" name="twitter" stack="1x" />
+                    <FontAwesome id="socialBtn" name="twitter" stack="1x" />
                   </a>
                 </span>
                 <span className="fa-stack fa-lg">
                   <a href="https://www.twitter.com/philosophicalHeroes">
                     ">
                     <FontAwesome className="socialBg" name="circle-o" stack="2x" />
-                    <FontAwesome className="socialBtn" name="facebook" stack="1x" />
+                    <FontAwesome id="socialBtn" name="facebook" stack="1x" />
                   </a>
                 </span>
                 <span className="fa-stack fa-lg">
                   <a href="https://www.twitter.com/philosophicalHeroes">
                     <FontAwesome className="socialBg" name="circle-o" stack="2x" />
-                    <FontAwesome className="socialBtn" name="spotify" stack="1x" />
+                    <FontAwesome id="socialBtn" name="spotify" stack="1x" />
                   </a>
                 </span>
                 <span className="fa-stack fa-lg">
                   <a href="https://www.twitter.com/philosophicalHeroes">
                     <FontAwesome className="socialBg" name="circle-o" stack="2x" />
-                    <FontAwesome className="socialBtn" name="soundcloud" stack="1x" />
+                    <FontAwesome id="socialBtn" name="soundcloud" stack="1x" />
                   </a>
                 </span>
               </div>
-              <section className="section">
+              <section c>
                 <h1 className="has-text-weight-bold is-size-2 has-text-centered">
                   Latest Episodes
                 </h1>
-                {posts
-                  .filter((post) => post.node.frontmatter.templateKey === "episode-post")
-                  .map(({ node: post }) => (
-                    <div
-                      className="episode"
-                      style={{
-                        border: "1px solid #eaecee",
-                        padding: "2em 4em",
-                        margin: "2rem auto"
-                      }}
-                      key={post.id}
-                    >
-                      <p>
-                        <Link className="has-text-primary" to={post.fields.slug}>
-                          {post.frontmatter.title}
-                        </Link>
-                        <span> &bull; </span>
-                        <small>{post.frontmatter.date}</small>
-                      </p>
-                      <p className="is-clearfix">
-                        {post.frontmatter.description}
-                        <br />
-                        <br />
-                        {/* <h1> {episodeNumberFormat(post.frontmatter.episodeNumber)}</h1> */}
-                        <Link className="listenBtn is-pulled-right " to={post.fields.slug}>
-                          ▶ Listen
-                        </Link>
-                      </p>
-                    </div>
-                  ))}
+                {episodes.map(({ node: post }) => (
+                  <div
+                    className="episode"
+                    style={{
+                      border: "1px solid #eaecee",
+                      padding: "2em 4em",
+                      margin: "2rem auto"
+                    }}
+                    key={post.id}
+                  >
+                    <div className="episodeNum">E001</div>
+                    <span> &bull; </span>
+                    <small>{post.frontmatter.date}</small>
+                    <p>
+                      <Link className="has-text-primary is-size-4" to={post.fields.slug}>
+                        {post.frontmatter.title}
+                      </Link>
+                      <span className="underline" />
+                    </p>
+                    <p className="is-clearfix">
+                      {post.frontmatter.description}
+                      <br />
+                      <br />
+                      {/* <h1> {episodeNumberFormat(post.frontmatter.episodeNumber)}</h1> */}
+                      <Link className="listenBtn is-pulled-right " to={post.fields.slug}>
+                        ▶ Listen
+                      </Link>
+                    </p>
+                  </div>
+                ))}
               </section>
+              {episodes.length > 2 ? (
+                <div className="showMoreContainer">
+                  <Link to="/episodes">
+                    <p className="showMore">
+                      View Older <span>›</span>
+                    </p>
+                  </Link>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

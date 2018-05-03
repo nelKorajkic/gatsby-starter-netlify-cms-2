@@ -12,6 +12,7 @@ const TemplateWrapper = ({ children }) => (
         rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       />
+      <link rel="icon" type="image/png" href="/img/sky.jpg" sizes="16x16" />
     </Helmet>
     <Navbar />
     <div>{children()}</div>

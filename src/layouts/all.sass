@@ -15,7 +15,14 @@ $primary-invert: $kaldi-red-invert
 $btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
 *
   font-family: $open-sans
-  
+.episodeNum
+  background: $bgGradient
+  display: inline-block
+  padding: 1rem
+  border-radius: 100%
+  color: white
+  font-size: 2.2rem
+  text-align: center
 .episode
   box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
   -webkit-box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
@@ -23,7 +30,29 @@ $btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
   margin: 5rem 0rem
   box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
   -webkit-box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
-  
+.showMore
+  text-align: center
+  padding: .1rem 1rem;
+  border-radius: 2rem
+  color: #4a4a4a;
+  font-weight: bold
+  display: inline-block
+  font-size: 1rem
+  box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
+  -webkit-box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
+  vertical-align: sub
+  span
+    display: inline
+    vertical-align: sub
+    font-size: 2rem
+.showMoreContainer 
+  display: flex
+  justify-content: center
+  align-items: center
+  position: relative
+  z-index: 2
+  //width: 100%
+
 .test
   background-image: $btnGradient
   border-radius: 40px
@@ -51,7 +80,10 @@ $btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
   margin-bottom: 1rem
 .ph-textarea
   height: 9em !important
-.ph-input
+  background: #eee !important
+input.ph-input,
+textarea.ph-input
+  box-shadow: none
   margin-bottom: .5rem
   border-radius: 6px
   padding: .4rem .8rem
@@ -63,17 +95,20 @@ $btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
   display: inline-flex
   width: 100%
   max-width: 100%
+  transition: transform .3s ease-in-out
   &:focus
     background: #fff !important
     outline: none !important 
-    border: 1px solid rgb(66, 64, 74) !important
+    //border: 2px solid rgb(66, 64, 74) !important
     box-shadow: 0 0 10px #719ECE !important
+    transform: scale(1.01)
+    transform-origin: center center
 .fa-stack
   margin-right: .7rem
   
-.socialBtn
+#socialBtn
   color: white
-  font-size: 1.6em
+  font-size: 1.3em
   width: 1.6em
   line-height: 1.6em
   text-align: center
