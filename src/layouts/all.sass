@@ -7,29 +7,78 @@ $Archivo: 'Archivo Narrow', serif;
 $open-sans: 'Open Sans', sans-serif;
 
 // Config vars
-$kaldi-red: #FD461E
-$kaldi-red-invert: #fff
+$ph-blue: #45485C
+$ph-blue-invert: #fff
 $bgGradient: linear-gradient(93.08deg, #42404A 6.47%, #2F65AD 87.28%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #45485C
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
+$primary: $ph-blue
+$primary-invert: $ph-blue
 $btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
 *
   font-family: $open-sans
+
+.outer 
+  align-items: center;
+  display: flex;
+  height: 150px;
+  justify-content: center;
+  max-width: 100%;
+  overflow: auto;
+  padding: 15px;
+  resize:both
+  flex-direction: column
+
+
+svg 
+  height: 100%;
+
+circle 
+  fill: $ph-blue
+
+text 
+  fill: #fff;
+  font-size: 4rem;
+  font-family: sans-serif;
+
+
+.episodeUnderline
+  background: $bgGradient
+  height: 4px
+  display: block
+  width: 100%
+  border-radius: 2px
+.episodeContent
+  padding-top: .4rem
+.episodeDate
+  // text-align: center
+  // display: block
+
+.episodeNumContainer
+  flex: 0 0 20%;
+
+.episodeContentContainer
+  flex: 1 1 80%;
+  padding: 0 1rem;
+
 .episodeNum
   background: $bgGradient
-  display: inline-block
   padding: 1rem
   border-radius: 100%
   color: white
   font-size: 2.2rem
   text-align: center
+  
 .episode
+  align-content: center
+  justify-content: space-between
+  display: flex
   box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
   -webkit-box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
+  
 .ph-form
   margin: 5rem 0rem
   box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
   -webkit-box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1)
+  
 .showMore
   text-align: center
   padding: .1rem 1rem;
@@ -45,6 +94,7 @@ $btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
     display: inline
     vertical-align: sub
     font-size: 2rem
+
 .showMoreContainer 
   display: flex
   justify-content: center
@@ -78,9 +128,11 @@ $btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
   font-family: $open-sans
   margin-top: 2rem
   margin-bottom: 1rem
+
 .ph-textarea
   height: 9em !important
   background: #eee !important
+
 input.ph-input,
 textarea.ph-input
   box-shadow: none
@@ -103,6 +155,7 @@ textarea.ph-input
     box-shadow: 0 0 10px #719ECE !important
     transform: scale(1.01)
     transform-origin: center center
+
 .fa-stack
   margin-right: .7rem
   

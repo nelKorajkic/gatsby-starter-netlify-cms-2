@@ -14,14 +14,14 @@ const Navbar = () => (
           Home
           <span className="underline" />
         </Link>
-        <Link activeClassName="is-active" className="navbar-item" to="/about">
+        {/* <Link activeClassName="is-active" className="navbar-item" to="/about">
           About
           <span className="underline" />
         </Link>
         <Link activeClassName="is-active" className="navbar-item" to="/products">
           Products
           <span className="underline" />
-        </Link>
+        </Link> */}
         <Link activeClassName="is-active" className="navbar-item" to="/blog">
           Blog
           <span className="underline" />

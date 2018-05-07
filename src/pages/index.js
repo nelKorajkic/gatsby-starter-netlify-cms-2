@@ -23,7 +23,12 @@ export default class IndexPage extends Component {
       <div>
         <div className="container">
           <div className="columns">
-            <div className="column is-half is-offset-one-quarter">
+            <div
+              className="column 
+            is-8-desktop is-offset-2-desktop 
+            is-8-tablet is-offset-2-tablet
+            is-10-mobile is-offset-1-mobile "
+            >
               <img src="" alt="" />
               <h1 className="has-text-weight-bold is-size-2 has-text-centered	">
                 Philosophical Heroes
@@ -62,7 +67,7 @@ export default class IndexPage extends Component {
                   </a>
                 </span>
               </div>
-              <section c>
+              <section>
                 <h1 className="has-text-weight-bold is-size-2 has-text-centered">
                   Latest Episodes
                 </h1>
@@ -76,24 +81,53 @@ export default class IndexPage extends Component {
                     }}
                     key={post.id}
                   >
-                    <div className="episodeNum">E001</div>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                    <p>
-                      <Link className="has-text-primary is-size-4" to={post.fields.slug}>
-                        {post.frontmatter.title}
-                      </Link>
-                      <span className="underline" />
-                    </p>
-                    <p className="is-clearfix">
-                      {post.frontmatter.description}
-                      <br />
-                      <br />
-                      {/* <h1> {episodeNumberFormat(post.frontmatter.episodeNumber)}</h1> */}
-                      <Link className="listenBtn is-pulled-right " to={post.fields.slug}>
-                        ▶ Listen
-                      </Link>
-                    </p>
+                    <div className="outer">
+                      <svg viewBox="0 0 140 140" preserveAspectRatio="xMidYMin meet">
+                        {/* <defs>
+                          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                          </linearGradient>
+                        </defs> */}
+                        <g>
+                          <circle
+                            r="50%"
+                            cx="50%"
+                            cy="50%"
+                            className="circle-back"
+                            fill="url(#grad1)"
+                          />
+                          <text x="50%" y="50%" textAnchor="middle" dy="0.3em">
+                            E99
+                          </text>
+                        </g>
+                      </svg>
+                      <span className="episodeDate">{post.frontmatter.date}</span>
+                    </div>
+                    {/* <div className="episodeNumContainer">
+                      <div className="episodeNum">E001</div>
+                      <span className="episodeDate">{post.frontmatter.date}</span>
+                    </div>
+                      */}
+                    <div className="episodeContentContainer">
+                      <p>
+                        <Link
+                          className="has-text-primary has-text-bold is-size-4"
+                          to={post.fields.slug}
+                        >
+                          {post.frontmatter.title}
+                        </Link>
+                      </p>
+                      <p className="is-clearfix episodeContent">
+                        {post.frontmatter.description}
+                        <br />
+                        <br />
+
+                        <Link className="listenBtn is-pulled-right " to={post.fields.slug}>
+                          ▶ Listen
+                        </Link>
+                      </p>
+                    </div>
                   </div>
                 ))}
               </section>
