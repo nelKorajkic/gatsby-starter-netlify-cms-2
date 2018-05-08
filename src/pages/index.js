@@ -31,7 +31,7 @@ export default class IndexPage extends Component {
             >
               <img src="" alt="" />
               <h1 className="has-text-weight-bold is-size-2 has-text-centered	">
-                Philosophical Heroes
+                Philosophical Superheroes
               </h1>
               <div className="content">
                 <p className="has-text-justified">
@@ -83,12 +83,12 @@ export default class IndexPage extends Component {
                   >
                     <div className="outer">
                       <svg viewBox="0 0 140 140" preserveAspectRatio="xMidYMin meet">
-                        {/* <defs>
+                        <defs>
                           <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                            <stop offset="0%" stopColor="#42404A" fillOpacity={1} />
+                            <stop offset="100%" stopColor="#2F65AD" fillOpacity={1} />
                           </linearGradient>
-                        </defs> */}
+                        </defs>
                         <g>
                           <circle
                             r="50%"
@@ -98,7 +98,7 @@ export default class IndexPage extends Component {
                             fill="url(#grad1)"
                           />
                           <text x="50%" y="50%" textAnchor="middle" dy="0.3em">
-                            E99
+                            E{post.frontmatter.episodeNumber}
                           </text>
                         </g>
                       </svg>
@@ -122,7 +122,6 @@ export default class IndexPage extends Component {
                         {post.frontmatter.description}
                         <br />
                         <br />
-
                         <Link className="listenBtn is-pulled-right " to={post.fields.slug}>
                           ▶ Listen
                         </Link>
@@ -171,6 +170,7 @@ export const pageQuery = graphql`
             templateKey
             date(formatString: "MMM DD YYYY")
             description
+            episodeNumber
           }
         }
       }

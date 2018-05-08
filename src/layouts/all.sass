@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,700');
 
 // Font Variables
-$Archivo: 'Archivo Narrow', serif;   
+$archivo: 'Archivo Narrow', serif;   
 $open-sans: 'Open Sans', sans-serif;
 
 // Config vars
@@ -13,8 +13,12 @@ $bgGradient: linear-gradient(93.08deg, #42404A 6.47%, #2F65AD 87.28%), linear-gr
 $primary: $ph-blue
 $primary-invert: $ph-blue
 $btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
+
 *
   font-family: $open-sans
+
+h1,h2,h3,h4,h5,h6
+  font-family: $archivo
 
 .outer 
   align-items: center;
@@ -26,19 +30,18 @@ $btnGradient: linear-gradient(to right, #006175 0%, #00a950 100%)
   padding: 15px;
   resize:both
   flex-direction: column
-
+  flex-shrink: 0
 
 svg 
   height: 100%;
 
 circle 
-  fill: $ph-blue
+  // fill: $ph-blue
 
 text 
   fill: #fff;
   font-size: 4rem;
   font-family: sans-serif;
-
 
 .episodeUnderline
   background: $bgGradient
@@ -126,12 +129,11 @@ text
   border-radius: 24px;
   border: 1px solid transparent
   font-family: $open-sans
-  margin-top: 2rem
+  margin-: 2rem
   margin-bottom: 1rem
 
 .ph-textarea
   height: 9em !important
-  background: #eee !important
 
 input.ph-input,
 textarea.ph-input
@@ -139,7 +141,7 @@ textarea.ph-input
   margin-bottom: .5rem
   border-radius: 6px
   padding: .4rem .8rem
-  background: #eee !important
+  background: #f9f9f9 !important
   color: black
   border: 1px solid transparent;
   font-family: $open-sans
@@ -148,6 +150,7 @@ textarea.ph-input
   width: 100%
   max-width: 100%
   transition: transform .3s ease-in-out
+  resize: none
   &:focus
     background: #fff !important
     outline: none !important 
@@ -179,7 +182,7 @@ textarea.ph-input
   opacity: 1
 
 .navbar-item
-  font-family: $Archivo
+  font-family: $archivo
   opacity: .5
   &:hover
     opacity: .8

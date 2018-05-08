@@ -6,40 +6,55 @@ export default class BlogPage extends Component {
   render() {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
-
+    const blogPosts = posts.filter((post) => post.node.frontmatter.templateKey === "blog-post");
     return (
-      <section className="section">
+      <div>
         <div className="container">
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Blog Post</h1>
+          <div className="columns">
+            <div
+              className="column 
+            is-8-desktop is-offset-2-desktop 
+            is-8-tablet is-offset-2-tablet
+            is-10-mobile is-offset-1-mobile "
+            >
+              <section>
+                <h1 className="has-text-weight-bold is-size-2 has-text-centered">All Blog Posts</h1>
+                {blogPosts.map(({ node: post }) => (
+                  <div
+                    className="episode"
+                    style={{
+                      border: "1px solid #eaecee",
+                      padding: "2em 4em",
+                      margin: "2rem auto"
+                    }}
+                    key={post.id}
+                  >
+                    <div className="episodeContentContainer">
+                      <p>
+                        <Link
+                          className="has-text-primary has-text-bold is-size-4"
+                          to={post.fields.slug}
+                        >
+                          {post.frontmatter.title}
+                        </Link>
+                      </p>
+                      {post.frontmatter.date}
+                      <p className="is-clearfix episodeContent">
+                        {post.frontmatter.description}
+                        <br />
+                        <br />
+                        <Link className="listenBtn is-pulled-right " to={post.fields.slug}>
+                          Read ›
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </section>
+            </div>
           </div>
-          {posts
-            .filter((post) => post.node.frontmatter.templateKey === "blog-post")
-            .map(({ node: post }) => (
-              <div
-                className="content"
-                style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
-                key={post.id}
-              >
-                <p>
-                  <Link className="has-text-primary" to={post.fields.slug}>
-                    {post.frontmatter.title}
-                  </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
-                  {post.frontmatter.description}
-                  <br />
-                  <br />
-                  <Link className="button is-small" to={post.fields.slug}>
-                    Read More
-                  </Link>
-                </p>
-              </div>
-            ))}
         </div>
-      </section>
+      </div>
     );
   }
 }
