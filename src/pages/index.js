@@ -29,39 +29,39 @@ export default class IndexPage extends Component {
             is-8-tablet is-offset-2-tablet
             is-10-mobile is-offset-1-mobile "
             >
-              <img src="" alt="" />
+              {/* <img src="" alt="" /> */}
               <h1 className="has-text-weight-bold is-size-2 has-text-centered	">
-                Philosophical Superheroes
+                Comic Book Philosophy
               </h1>
-              <div className="content">
+              <div className="content is-medium">
                 <p className="has-text-justified">
                   Here is the description of the podcast it’s about something and something and it
                   everynight at 9pm hosted by Stjepan Kraljic. Tune in live at youtube.com or catch
                   it after at soundcloud.com
                 </p>
               </div>
-              <div>
+              <div className="content">
                 <span className="fa-stack fa-lg">
-                  <a href="https://www.twitter.com/philosophicalHeroes">
+                  <a href="https://www.twitter.com/ComicBookPhi">
                     <FontAwesome className="socialBg" name="circle-o" stack="2x" />
                     <FontAwesome id="socialBtn" name="twitter" stack="1x" />
                   </a>
                 </span>
                 <span className="fa-stack fa-lg">
-                  <a href="https://www.twitter.com/philosophicalHeroes">
+                  <a href="https://www.twitter.com/ComicBookPhi">
                     ">
                     <FontAwesome className="socialBg" name="circle-o" stack="2x" />
                     <FontAwesome id="socialBtn" name="facebook" stack="1x" />
                   </a>
                 </span>
                 <span className="fa-stack fa-lg">
-                  <a href="https://www.twitter.com/philosophicalHeroes">
+                  <a href="https://www.twitter.com/ComicBookPhi">
                     <FontAwesome className="socialBg" name="circle-o" stack="2x" />
                     <FontAwesome id="socialBtn" name="spotify" stack="1x" />
                   </a>
                 </span>
                 <span className="fa-stack fa-lg">
-                  <a href="https://www.twitter.com/philosophicalHeroes">
+                  <a href="https://www.twitter.com/ComicBookPhi">
                     <FontAwesome className="socialBg" name="circle-o" stack="2x" />
                     <FontAwesome id="socialBtn" name="soundcloud" stack="1x" />
                   </a>

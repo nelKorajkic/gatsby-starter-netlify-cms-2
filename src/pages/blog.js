@@ -44,7 +44,7 @@ export default class BlogPage extends Component {
                         <br />
                         <br />
                         <Link className="listenBtn is-pulled-right " to={post.fields.slug}>
-                          Read ›
+                          Read ➤
                         </Link>
                       </p>
                     </div>

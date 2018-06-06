@@ -78,7 +78,7 @@ export default class Contact extends React.Component {
                         type="email"
                         name="email"
                         onChange={this.handleChange}
-                        placeholder="John Doe@test.com"
+                        placeholder="hello@example.com"
                       />
                       <span className="icon is-small is-left">
                         <FontAwesome className="fas" style={{ color: "#4a4a4a" }} name="envelope" />
@@ -104,6 +104,13 @@ export default class Contact extends React.Component {
                 <p>
                   <button className="ph-submit is-pulled-right" type="submit">
                     Send
+                    <span className="icon is-small is-left">
+                      <FontAwesome
+                        className="fas"
+                        style={{ marginLeft: "10" }}
+                        name="paper-plane"
+                      />
+                    </span>
                   </button>
                 </p>
               </form>
